@@ -8,6 +8,7 @@ description: Use before dispatching agents, big reads, repeated steps, handoffs,
 ## Terms
 
 - Plant: break an input on purpose; the check must fail.
+- Default: every number below is an untested starting value, not a measured saving; replace it with a measured one (see Savings).
 
 ## Rungs: take the first that applies
 
@@ -37,8 +38,13 @@ description: Use before dispatching agents, big reads, repeated steps, handoffs,
 - Width starts at min(4, independent items).
 - Next round: +1 if all unique and passing, else −1.
 - Rate-limit or usage-limit error → halve width.
-- Keep every repeated prompt's prefix byte-identical.
 - Returns over 30 lines → one agent condenses to 30.
+
+## Cache
+
+- Keep every repeated prompt's prefix byte-identical.
+- Only append to the context; never edit or reorder what is already in it.
+- Keep the tool set fixed for a session; restrict a tool by rule, never by removing its definition.
 
 ## Brief: inputs
 
