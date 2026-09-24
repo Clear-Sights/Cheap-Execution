@@ -24,6 +24,7 @@ description: Use before dispatching agents, big reads, repeated steps, handoffs,
 - Check every reported number against its source's own figure.
 - Work shared across items → do once, store for all.
 - Facts for a next reader: state values, not locations.
+- A gated or irreversible action → try it on the smallest case first, before the full job.
 
 ## Dispatch
 
@@ -46,7 +47,7 @@ description: Use before dispatching agents, big reads, repeated steps, handoffs,
 
 ## Brief: inputs
 
-- Whole brief at most 2,000 characters.
+- Whole brief's own words: about 50, plus the READ, WRITE and ACCEPTANCE lines below.
 - READ: exactly what to open, with line spans.
 - "Open only READ; need more → return `NEED: <path> <why>`."
 - GROUND TRUTH: facts the task needs, each with confirming command.
