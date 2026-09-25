@@ -1,13 +1,14 @@
 # cheap-execution
 
-A Claude Code skill that cuts token spend without cutting verification.
+A Claude Code skill of rules meant to cut token spend without cutting verification. Its saving is
+not yet measured; see "Not yet tested".
 
 ## Why
 
-Measured on 68 real Claude Code sessions (64,667 model calls):
+Measured on one Claude Code session (45 model calls when read) by
+`python3 token_share.py '~/.claude/projects/*/*.jsonl'`:
 
-- Cache reads were 98.6% of all tokens; output was 0.2%.
-- A block that entered the conversation stayed there for about 480 model calls on average.
+- Cache reads were about 96% of all tokens; output was 0.3%.
 
 So what matters is how long bytes stay in context, not how many get written. Every rule that keeps
 bytes out of context, or clears them sooner, pays back on every later call.
@@ -29,14 +30,7 @@ It loads on its own when its description matches the work, or on demand with `/c
 - how to hand off or compact so the next reader rereads nothing;
 - how to prove a saving before claiming one.
 
-## How it was tested
+## Not yet tested
 
-Every line was checked on Claude Opus against a behaviour probe written for that line, first as
-direct questions and then inside a realistic mid-task session, each with and without the skill.
-
-- 23 lines change behaviour: the model gets them wrong without the skill and right with it.
-- The rest are behaviours the model already shows, but removing them as a group made other lines
-  fail, so they stay.
-- Lines that changed nothing even with the skill loaded were removed.
-- One line was misread (the model put the NEXT section first instead of writing it first); it was
-  reworded and the misreading stopped.
+No before-and-after token count exists for this skill. Every number in SKILL.md is a default until
+one does; SKILL.md's Savings section says how to take it.
