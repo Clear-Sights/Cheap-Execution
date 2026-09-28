@@ -12,6 +12,7 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 
 ## Rungs: take the first that applies
 
+0. Result changes no next act → skip it.
 1. Search existing sources first; found → read or call it, never copy or recompute.
 2. Same input always gives same answer → compute with code.
 3. Pruning code costs less than model reading all → prune.
@@ -23,6 +24,7 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 - Anything processing items reports in, out, and dropped counts.
 - Every number or fact for a reader is copied from a run's output with its command, or marked `believed`.
 - Repeated review → read only the diff since the last reviewed commit; each finding becomes a plant in the gate, so old escapes are rechecked by script.
+- Gated or irreversible action → try it on the smallest case first, then the full job.
 - Step needs no deep reasoning → lower effort or thinking budget (Claude Code costs doc).
 
 ## Done twice by hand, or shared across items → make it run unasked
