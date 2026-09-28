@@ -24,7 +24,7 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 - Anything processing items reports in, out, and dropped counts.
 - Every number or fact for a reader is copied from a run's output with its command, or marked `believed`.
 - Repeated review → read only the diff since the last reviewed commit; each finding becomes a plant in the gate, so old escapes are rechecked by script.
-- Gated or irreversible action → try it on the smallest case first, then the full job.
+- Gated, irreversible or unknown work → first mock its wiring from existing pieces at 0 model calls, smallest case first; each void becomes a row, filled in order under a numeric cost cap, ending met or measured-not-met.
 - Step needs no deep reasoning → lower effort or thinking budget (Claude Code costs doc).
 
 ## Done twice by hand, or shared across items → make it run unasked
