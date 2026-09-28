@@ -1,6 +1,6 @@
 ---
 name: "cheap-execution"
-description: "Use before dispatching agents, big reads, repeated steps, handoffs, or compactions."
+description: "Use on every task that spends tokens or runs tools: before dispatching agents, big reads, repeated steps, reviews, handoffs, or compactions."
 ---
 
 # Cheap Execution
@@ -8,7 +8,7 @@ description: "Use before dispatching agents, big reads, repeated steps, handoffs
 ## Terms
 
 - Plant: break an input on purpose; the checks it names, and only those, must fail. A plant that fails nothing is a gap, not a pass.
-- Default: every number below is an untested starting value, not a measured saving; replace it with a measured one (see Savings).
+- Default: every uncited number below is an untested starting value, not a measured saving; replace it with a measured one (see Savings).
 
 ## Rungs: take the first that applies
 
@@ -21,20 +21,21 @@ description: "Use before dispatching agents, big reads, repeated steps, handoffs
 ## Every step
 
 - Anything processing items reports in, out, and dropped counts.
-- Every number in a report or doc is printed by the run that produced it, never typed; check it against that output.
-- Work shared across items → do once, store for all.
+- Every number or fact for a reader is copied from a run's output with its command, or marked `believed`.
 - Repeated review → read only the diff since the last reviewed commit; each finding becomes a plant in the gate, so old escapes are rechecked by script.
-- Facts for a next reader: state values, not locations.
 - Step needs no deep reasoning → lower effort or thinking budget (Claude Code costs doc).
+
+## Done twice by hand, or shared across items → make it run unasked
+
+- Do it once in code, store the result for all, inside the act's one entry point.
+- Assert the expected count before acting.
 
 ## Dispatch
 
-- Give each agent everything its answer depends on.
 - One agent gets at most 3 tasks, sized to fit one context window (GSD REQ-PLAN-02).
-- Parallel agents share no writable state.
-- Sessions talk through a file, one writer each; a message between sessions may never arrive.
+- Parallel agents share no writable state; sessions talk through a file, one writer each, since a message between sessions may never arrive.
 - Grant each agent only the tools its task needs.
-- At most 2 verification agents per gate.
+- Verification: checks first (0 tokens); only what they leave goes to one reader, the strongest model, never several cheaper ones.
 - Inputs that may change mid-run, other repos included → pin by content hash or commit, never a live branch.
 
 ## Fan-out
@@ -42,13 +43,10 @@ description: "Use before dispatching agents, big reads, repeated steps, handoffs
 - Width starts at min(4, independent items).
 - Next round: +1 if all unique and passing, else −1.
 - Rate-limit or usage-limit error → halve width.
-- Returns over 30 lines → one agent condenses to 30.
 
 ## Cache
 
-- Keep every repeated prompt's prefix byte-identical.
-- Only append to the context; never edit or reorder what is already in it.
-- Keep the tool set fixed for a session; restrict a tool by rule, never by removing its definition.
+- Keep every repeated prefix byte-identical: only append to the context, and keep the tool set fixed (restrict a tool by rule, never by removing its definition).
 - Text loaded on every turn (skill descriptions, CLAUDE.md, MCP tools, hook output) → cap its length with a lint, set before the session; examples and history live in files read on demand (GSD: 100-char cap, ~40% static cut; claude-token-optimizer: 11,000 → 1,300 start tokens).
 - A cached prefix under the model's minimum (512 to 2,048 tokens, prompt caching doc) never caches; check it clears.
 - Model jobs that can wait → Batch API, 50% off, stacks with caching (batch processing doc).
@@ -59,7 +57,7 @@ description: "Use before dispatching agents, big reads, repeated steps, handoffs
 - READ: exactly what to open, with line spans.
 - "Open only READ; need more → return `NEED: <path> <why>`."
 - GROUND TRUTH: facts the task needs, each with confirming command.
-- Embed a random token in context files; require it returned.
+- Embed a random token in context files; missing from the return → that file was not read.
 
 ## Brief: outputs
 
@@ -71,29 +69,19 @@ description: "Use before dispatching agents, big reads, repeated steps, handoffs
 ## Returns
 
 - Accept only on your own run of ACCEPTANCE.
-- Resume any agent at most once.
-- Token missing → treat the context file as unread.
 - Claim fails its check → keep its coordinates; re-derive there.
 - Verdicts disputed or ≥90% identical → settle by planting.
 
-## Done twice by hand → make it run unasked
-
-- Its output becomes the next act's input.
-- Move it inside the act's one entry point.
-- Assert the expected count before acting.
-
 ## On failure
 
-- Each retry changes the brief; record what changed.
-- Retry once with a fresh agent, then one rung up.
+- Resume or retry once, with a changed brief and the change recorded; then one rung up.
 - Permission refused → ask the owner once for the exact action; never retry it or route around it.
 - After a fix: rerun its check, then the regression suite.
 
 ## Handoff, task boundary, or compaction: write a plan file
 
 - Sections, in this order: BLOCKING, DONE, NOW, DECIDED, FAILED, NEXT.
-- State every fact NEXT's first three steps need.
-- Each fact carries its producing command, or `believed`.
+- State, as values not locations, every fact NEXT's first three steps need.
 - Quote verbatim the user's instructions still in force.
 - Omit transcripts, listings, narration and history; history lives in a separate file, read by path only when a step names it.
 
