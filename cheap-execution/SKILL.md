@@ -12,7 +12,7 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 
 ## Rungs: take the first that applies
 
-0. Result changes no next act → skip it.
+0. Result changes no next act → skip it. A check's result always gates done, so never skip a check.
 1. Search existing sources first; found → read or call it, never copy or recompute.
 2. Same input always gives same answer → compute with code.
 3. Pruning code costs less than model reading all → prune.
