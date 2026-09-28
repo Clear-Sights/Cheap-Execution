@@ -1,0 +1,3 @@
+date	cut	before	after	unit	command
+2026-09-28	repeated review reads only the diff since the last attacked head	231180	24000	tokens per round	HANDOFF/sections/attack.md:1095,1104 session counter
+2026-09-28	round rule added at zero net words (flat, not a cut; paid for by trimming the Cache citations)	984	984	skill words	wc -w cheap-execution/SKILL.md
