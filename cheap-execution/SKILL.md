@@ -8,7 +8,7 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 ## Terms
 
 - Plant: break an input on purpose; the checks it names, and only those, must fail. A plant that fails nothing is a gap, not a pass.
-- Default: every uncited number below is an untested starting value, not a measured saving; replace it with a measured one (see Savings).
+- Default: every uncited number below is untested; replace it with a measured one.
 
 ## Rungs: take the first that applies
 
@@ -25,7 +25,7 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 - Every number or fact for a reader is copied from a run's output with its command, or marked `believed`.
 - Repeated review → read only the diff since the last reviewed commit; each finding becomes a plant in the gate, so old escapes are rechecked by script.
 - Gated, irreversible or unknown work → first mock its wiring from existing pieces at 0 model calls, smallest case first; each void becomes a row, filled in order under a numeric cost cap, ending met or measured-not-met.
-- Step needs no deep reasoning → lower effort or thinking budget (Claude Code costs doc).
+- Model calls: batch items per call and pass low effort explicitly; each call pays fixed overhead (Claude ~1.2k, Codex ~10k tokens) and ~1k thinking even when off. Measured: 44.8k → 16.6k.
 
 ## Done twice by hand, or shared across items → make it run unasked
 
@@ -43,7 +43,6 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 ## Fan-out
 
 - Width starts at min(4, independent items).
-- Next round: +1 if all unique and passing, else −1.
 - Rate-limit or usage-limit error → halve width.
 
 ## Cache
