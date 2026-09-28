@@ -84,12 +84,13 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 - State, as values not locations, every fact NEXT's first three steps need.
 - Quote verbatim the user's instructions still in force.
 - Omit transcripts, listings, narration and history; history lives in a separate file, read by path only when a step names it.
+- The next job starts in a fresh session from the plan file: a long thread re-read about 325,000 tokens on every call.
 
 ## Main window
 
 - Emit only what changed: bounded edits, diffs, new facts.
 - Plan file written → tell the user `/clear` is safe.
-- Output over 50 lines → write it to a file; read back first 5, FAIL/ERROR lines, last 5, count.
+- Output over about 8,000 tokens → write it to a file; read back first 5, FAIL/ERROR lines, last 5, count. Smaller output stays: a hidden output was asked back 85% of the time.
 - Derive what files settle; ask the rest in one message.
 
 ## Savings

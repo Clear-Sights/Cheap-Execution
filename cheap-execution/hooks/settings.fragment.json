@@ -2,7 +2,8 @@
   "hooks": {
     "PreToolUse": [
       {"matcher": "Agent|Task|Bash",
-       "hooks": [{"type": "command", "command": "python3 ~/.claude/skills/cheap-execution/hooks/cheap.py"}]}
+       "hooks": [{"type": "command",
+                  "command": "f=\"$HOME/.claude/skills/cheap-execution/hooks/cheap.py\"; [ -f \"$f\" ] && python3 \"$f\" 2>/dev/null; exit 0"}]}
     ]
   }
 }

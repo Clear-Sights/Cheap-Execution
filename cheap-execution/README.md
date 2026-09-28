@@ -41,7 +41,7 @@ Self-contained: Python standard library only, no other plugin required. Two part
 
 - The description matches every task that spends tokens or runs tools, so the skill loads by default.
 - `hooks/cheap.py`, a PreToolUse hook, shows only the clause that governs the call about to run
-  (clauses are data in `hooks/clauses.tsv`; one evaluator; advisory, never blocks). Merge
+  (clauses are data in `hooks/clauses.tsv`, each naming a kind of command shape; one evaluator; it exits 0 whatever happens, so it can never block). Merge
   `hooks/settings.fragment.json` into `~/.claude/settings.json`. A session pays about 20-40 tokens
   per matching call instead of the whole page (inferred at 4 bytes per token).
 - Rules no tool call reveals (the rungs) need one line in `~/.claude/CLAUDE.md`:

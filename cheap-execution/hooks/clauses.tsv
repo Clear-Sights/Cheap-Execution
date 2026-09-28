@@ -1,5 +1,5 @@
-# tool	field	pattern (Python regex, case-insensitive)	clause shown before the call
-Agent|Task	prompt	.	Brief: at most 2,000 characters and 3 tasks; READ spans, WRITE files, ACCEPTANCE seen failing on a plant, EXPECTED line, RETURN at most 15 lines; checks first, one strongest reader.
-Bash	command	\b(cat|less|more|tac)\b[^|;&]*\|\s*(grep|rg|awk|sed)\b	Search the file directly (grep/rg on the path); never read it whole and then filter.
-Bash	command	\bsleep\s+\d|\bwatch\s+-n\b|until\b.*\bsleep\b	Do not poll: wait on the run's own exit, or on a notification.
-Bash	command	\b(pytest|unittest|test|check|gate|mutate)\b[^|]*\|\s*(tail|head)\b	A pipe drops the verifier's exit code: redirect to a file and report rc=$?.
+# tool	kind (a predicate in cheap.py)	clause shown before the call
+Agent|Task	any	Brief: at most 2,000 characters and 3 tasks; READ spans, WRITE files, ACCEPTANCE seen failing on a plant, EXPECTED line, RETURN at most 15 lines; checks first, one strongest reader.
+Bash	verifier_exit_lost	A verifier's exit code is lost here: redirect its output to a file and report rc=$?, or set -o pipefail.
+Bash	poll_loop	Do not poll in a loop: wait on the run's own exit, or on a notification.
+Bash	filter_after_dump	Search the source directly (grep/rg on the path, or the tool's own filter); do not dump it whole and then filter.
