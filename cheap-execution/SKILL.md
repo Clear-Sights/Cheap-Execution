@@ -49,7 +49,7 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 ## Cache
 
 - Keep every repeated prefix byte-identical: only append to the context, and keep the tool set fixed (restrict a tool by rule, never by removing its definition).
-- Text loaded on every turn (skill descriptions, CLAUDE.md, MCP tools, hook output) → cap its length with a lint, set before the session; examples and history live in files read on demand (GSD: 100-char cap, ~40% static cut; claude-token-optimizer: 11,000 → 1,300 start tokens).
+- Text loaded on every turn (skill descriptions, CLAUDE.md, MCP tools, hook output) → cap its length with a lint set before the session; the rest lives in files read on demand (claude-token-optimizer: 11,000 → 1,300 start tokens).
 - A cached prefix under the model's minimum (512 to 2,048 tokens, prompt caching doc) never caches; check it clears.
 - Model jobs that can wait → Batch API, 50% off, stacks with caching (batch processing doc).
 
@@ -100,5 +100,5 @@ description: "Use on every task that spends tokens or runs tools: before dispatc
 - Claim a saving only from the same task measured before and after, same conditions: no token type rose, one fell, done-check passes.
 - Count tokens per type from `~/.claude/projects/*/*.jsonl` usage fields; size a prompt before sending with the free count_tokens endpoint, never bytes/4.
 - Timing checks compare a ratio or interleaved runs, never one mean against a fixed bar.
-- Log each recurring job's token cost in a file, beside the cost of the cheapest known way to do it.
-- Cost over 2× that cheapest way → stop, name the rise. A job compared only with its own past never trips.
+- Each round ends with one cut applied, its before, after and command appended to Cheap-Execution LESSONS.tsv. Cost over 2× the cheapest logged way → stop, name the rise.
+- Later rounds fold general rows in by measured saving per word; each replaces a weaker line, so it never grows.
