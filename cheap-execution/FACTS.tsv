@@ -10,3 +10,7 @@ Codex runs need CODEX_AUTH_JSON present and unexpired	a Codex step returns 401	C
 a fresh container has no coqc, ocamlfind, pytest or nltk until provision.sh runs	the gate dies at the first import	pytest missing (Measure-Zero CLAUDE.md)
 pgrep -f / pkill -f match their own command line	a wait loop never ends; a kill ends the session's shell	pgrep wait loops (CRITIQUE)
 a shallow clone lacks commits older than its depth	a run pinned to an older sha tests the wrong tree	void A/B: shallow clone lacked 3948de2
+a nested `claude -p` reports its parent's session_id with an empty agent_id	a ledger keyed per session pools parent and child; the child's demand blocks the parent at Stop	Keel README.md:128-135
+Codex through the MCP wrapper cancels at 60 s (turn_aborted); `codex exec` does not	a long Codex call through the wrapper returns nothing	strong-skills HANDOFF.md:100-102
+Codex models and effort levels are listed in ~/.codex/models_cache.json	a guessed model or effort name is rejected	strong-skills HANDOFF.md:103-104
+a `git fetch` short form leaves a stale tracking ref	phantom unpushed commits appear	Measure-Zero CLAUDE.md step 1
