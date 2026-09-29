@@ -1,5 +1,28 @@
 # cheap-execution
 
+One skill, one flow (SKILL.md): name the end, walk back to the inputs that decide it, settle each where it
+already is, ask whether what is left can change the answer, fill only what can, cheapest first, and run live
+only for what nothing settles, with the prediction written down. A review is the same flow with "no defect
+left" as its end. The detail each step calls on is kept whole beside it:
+
+| file | what it is | flow step |
+|---|---|---|
+| SKILL.md | the flow | all |
+| FACTS.tsv | facts of the room a launched step runs in, each with the incident it predicts | 3 |
+| REVIEW.md | the adversarial-review skill: seams, sealed plants, zero-token cells, one reader, stop rule | 2, 3, 5, 6 |
+| SPENDING.md | the earlier cheap-execution text: rungs, briefs, dispatch, fan-out, cache | 5 |
+| pieces/ | the 20 method skills from the handoff, each the detail of one step (pieces/INDEX.tsv: evidence and scope) | see below |
+| evidence/ | the census of 147 logged failures and the blind second tagging | 3, 4 |
+
+Pieces by step: 1 keyed-check-replay; 2 seam-audit, mesh-ledger, typed-holes, census-before-coverage;
+3 two-sided-check, failure-register-to-checks, shape-dedupe, prior-art-per-piece, claim-replay;
+4 removal-test, subtract-first, removal-sweep-with-cost; 5 differential-reference, lean-execution, context-mechanism-ab;
+6 blind-plant-calibration,
+standing-adversary, self-application, computed-verdict-ledger.
+
+---
+
+
 A Claude Code skill of rules meant to cut token spend without cutting verification. Its saving is
 not yet measured; see "Not yet tested".
 

@@ -3,3 +3,5 @@ date	cut	before	after	unit	command
 2026-09-28	round rule added at zero net words (flat, not a cut; paid for by trimming the Cache citations)	984	984	skill words	wc -w cheap-execution/SKILL.md
 2026-09-28	batch items per model call, explicit low effort, shared setup once, one re-ask with the failure reason (Scour grid sample)	44800	16600	tokens per sample	Improve Scour thread 22:38Z reply
 2026-09-28	folded the batch/effort row in; cut the untested fan-out step rule and the Default line wording	984	980	skill words	wc -w cheap-execution/SKILL.md
+2026-09-29	one flow folds shortest-path, adversarial-review and the old rules; the old texts kept whole beside it	980	765	skill words (SKILL.md)	wc -w cheap-execution/SKILL.md
+2026-09-29	folded what Small-Tools, Keel, Swale and Strong-Skills measured into the flow's steps and FACTS.tsv	765	968	skill words (SKILL.md)	wc -w cheap-execution/SKILL.md

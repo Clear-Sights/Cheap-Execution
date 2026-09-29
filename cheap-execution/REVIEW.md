@@ -1,9 +1,5 @@
----
-name: "adversarial-review"
-description: "Use to adversarially verify a chain of stages (spec, proof, extracted code, checker, tree write): sealed plants, run-only checks at every seam, one witness-giving reader, and a stop rule."
----
 
-# Adversarial review
+# Review: the flow of SKILL.md with "no defect left" as its end (the adversarial-review skill, kept whole)
 
 One audit of a whole chain. The wiring says where to look. Runs decide. A reader covers only what no run reaches. The audit ends zero or impossible.
 

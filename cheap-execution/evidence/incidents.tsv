@@ -1,0 +1,148 @@
+src	what	class	predictable_before_run
+M	Over-scoped Scour	intent	partly
+M	thread-id typos	shape	yes
+M	thread-reported merges stated as my fact	claim	yes
+M	card claimed before posted	claim	yes
+M	misread 'Give me the card'	intent	partly
+M	Codex row launch-red	cap	yes
+M	credential extraction attempt	cap	yes
+M	Launch rows touched Scour tree	order	yes
+M	CD step 1 machine claim	claim	yes
+M	claimed steps terminate before checking	claim	yes
+M	research ends open without projection	logic	yes
+M	six per-repo handoffs	intent	partly
+M	sealed Scour reader	logic	partly
+M	misnumbered skill steps	shape	yes
+M	Scour folding backwards	intent	partly
+M	setup courthouse/apt/pip/private-clone errors	cap	yes
+M	24k framed as hard	intent	partly
+M	handoffs NOT self-contained	reach	yes
+M	attackers never ran a handoff from its zip alone	reach	yes
+M	CLAUDE_CODE_ENABLE_FUNCTION_HOOKS left out of setup	cap	yes
+M	two threads gave different round-nine paste lines	claim	yes
+M	other fixes jumped ahead of the 11 missing zip files	order	partly
+M	handoffs never told launched sessions to push and merge	cap	yes
+M	Scour started changes before modeling	order	yes
+M	handoff zip lacked 11 files a step reads (launch stopped)	reach	yes
+M	stale Makoto clone turned launch row red	reach	yes
+M	permission check refused START.md / relink edits after his approval	cap	partly
+P	ATTACK2: gloss literal evaluation exponential (12M steps)	budget	yes
+P	ATTACK2: kdiff blocked by regen desync (Wire.culprits, Scc.Ecnt)	reach	yes
+P	ATTACK2: p4 worker stalled waiting on its own monitor	shape	yes
+P	ATTACK2: tiered audit stopped as wasteful	budget	yes
+P	CRITIQUE: pgrep -f wait loops matched themselves	shape	yes
+P	CRITIQUE: sole.sh foreground hits 590 s cap	budget	yes
+P	CRITIQUE: edit to check.py while sole read it spoiled a run	shape	yes
+P	CRITIQUE: rm of check.py.wip refused	cap	yes
+P	FIX-MZ: Wire.v 1b54 did not compile against fb69	reach	yes
+P	FIX-MZ: push to old branch rejected (unmerged superseded commits)	cap	yes
+P	LEDGER: harvest workers estimated counts, not parsed	claim	yes
+P	MAKOTO2: run.py cannot take makoto (wants one file returning a number)	shape	yes
+P	MAKOTO2: installed copy uncheckable before account sync	cap	yes
+P	METHOD: 40 mutants x 6 min on 4 cores stopped, 0 finished	budget	yes
+P	METHOD: Codex reader blocked by 401	cap	yes
+P	NAIVE: hand-built adversarial Rule did not empty narrowed(s)	outcome	no
+P	PROVE: dropped absent-owner clause without trial; it was needed	logic	yes
+P	PROVE: static end rule gave 5 runs that never end	logic	yes
+P	RULES: removal harness skipped units, 51 false greens	claim	yes
+P	TOOLS2: force-reset of merged branch refused (auto mode)	cap	yes
+P	TOOLS2: output-level capture cannot reach 90% of bill	budget	yes
+L	DetIO merge: replacement slots (one current copy per file kept whole through compaction)	budget	yes
+L	DetIO merge: pieces-vs-whole tree retrieval + mid-turn hold (tree.py, held.py)	budget	yes
+L	DetIO merge: write-time exact keys (keyplug)	budget	yes
+L	DetIO merge: Causality ranked retrieval before each prompt (mergeplug)	budget	yes
+L	DetIO merge: keep the model notes through compaction (lean5)	budget	yes
+L	DetIO merge: standing line to batch reads and write results to the output file (lean6)	budget	yes
+L	DetIO two hooks (output moved to an attachment note + prompt.attachment dropping older notes)	budget	yes
+L	DetIO two hooks on large outputs (forty-function task)	budget	yes
+L	DetIO subject cut (Read of a .py file cut at entry to def lines with spans + lines naming the prompt's names; Subject.v present, prompt as s	budget	yes
+L	DetIO two-hook pair on real threads (cut every output at entry + per-call Subject.v present injection by the turn's request, dropped next ca	budget	yes
+L	Live A/B DetIO arm test (10-function task)	budget	yes
+L	DetIO on a mesh-worker job	budget	yes
+L	DetIO on a thread-shaped job (n=2 per arm)	budget	yes
+L	DetIO elision mechanism cause of cost increase	budget	yes
+L	Two DetIO arms (read-instructions removed; prompt delivery + re-read dedupe) to beat DetIO off	budget	yes
+L	kdiff step0 (kernel vs gloss diff), first attempt	reach	yes
+L	DetIO on a find-the-callers style thread job vs no-DetIO	budget	yes
+L	DetIO on a thread-shaped job (scour pass + log + reader output), n=2/arm	budget	yes
+L	DetIO/Makoto live in this very session's transcript (plugin activation)	budget	yes
+L	DetIO output elision on a many-turn thread-shaped job	budget	yes
+L	DetIO token overhead	budget	yes
+L	DetIO token overhead, used-as-built, thread-shaped job	budget	yes
+L	DetIO cost per Gabriel's intended usage	budget	yes
+L	DetIO elision live-plugin check	budget	yes
+L	DetIO per-turn token growth before/after plugin live	budget	yes
+L	DetIO elision mechanism exercised by earlier trial	budget	yes
+L	DetIO per-turn context append growth	budget	yes
+L	DetIO elision on/off, find-callers task	budget	yes
+L	DetIO tool-output token cut vs off (live checked task)	budget	yes
+L	First test run on branch (before rebuild)	claim	partly
+L	Context, not code rule paraphrase	intent	partly
+L	Context, not code rule re-examination	intent	partly
+L	Correction on Gate 1 attribution	claim	partly
+L	Root cause check of call rise: standing_set	intent	partly
+L	Owned mistake: call-count reporting error	claim	yes
+L	Repeated correction: replayed rows counted twice	claim	yes
+L	Dropping every output the model reads, feasibility	intent	partly
+L	Owned mistake: setup script plugin activation	intent	partly
+L	Owned mistake: per-call number miscount from re-written compaction rows	claim	yes
+L	Owned mistake: compaction count miscount	claim	yes
+L	Owned mistake: slot run per-call number correction	claim	yes
+L	Owned mistake: compaction counter double-counting	claim	yes
+L	Owned mistake: context-per-call counting error from re-written compaction rows	claim	yes
+L	Owned mistake: compaction-count correction	claim	yes
+L	Withdrawn Stop-default design change	intent	partly
+L	Correction on applicability of the first two failing checks	claim	partly
+L	Clarification: Causality stopped mid-improvement, not by design	intent	partly
+L	Correction: history mesh didn't run mesh.py itself	claim	partly
+L	Owned mistake: prose removal drifted from prior ruling	intent	partly
+L	Owned mistake: mesh role misunderstanding	intent	partly
+L	Owned mistake: answered from elaboration instead of ruling	intent	partly
+L	Test-matching fix for 2 of 19 checks	intent	partly
+L	Stopping and rejecting bad reader output	intent	partly
+L	DetIO/Causality try 21: PAPER GATE: Causality retrieval on the slot-free compaction (lean4), best case = every one of the 55 repeated calls 	budget	yes
+L	DetIO/Causality try 22: lean6 = lean4 + one standing line (batch reads, write each finished result to the output file) + Continue prompt nam	budget	yes
+L	DetIO/Causality try 23: PAPER, no mid-task clearing (mesh/paper.py on the 3 recorded off runs, behaviour held; RATE = tokens per output char	budget	yes
+L	DetIO/Causality try 32: PAPER, the docs' remaining replacement point: a fresh subagent per step handed f(question, store) (CLAUDE.md:8-25 on	budget	yes
+L	DetIO/Causality try 36: LIVE: the two hooks on the forty-function task (large whole-file Reads; pairplug with hook_success echo dropped)	budget	yes
+L	DetIO/Causality try 37: LIVE: subject cut (subjplug: PostToolUse Read of .py over 60 lines -> stub + note of def/class lines with ast end li	budget	yes
+R	tuple-support identity fix (keying) for S3	logic	yes
+R	Makoto's install hooks running without CLAUDE_PLUGIN_ROOT set	cap	yes
+R	Tempus vision adoption then withdrawal (scope churn)	intent	partly
+R	Bind's isolation clause (per-rule witness)	logic	yes
+R	Same gate measurement reported twice with different numbers	claim	yes
+R	Try 3: model told how to page index back in	budget	yes
+R	Shape check C6 (no file/body twice, no unreachable unit)	logic	yes
+R	eager up-front test runs (every version of every use)	budget	yes
+R	Small-Tools suite (meta_test, reaper, grounding)	reach	yes
+R	Repeat-call diagnosis for slot-free run	budget	yes
+R	Running 4 parallel verify.py passes over an rclone mount	cap	yes
+R	self_test claimed to run "in front of every run"	claim	yes
+R	Rooting the reach walk at the checks	budget	yes
+R	Permission check on follow-up cleanup command after merge	cap	yes
+R	Dense per-file index radix-width claim	claim	yes
+R	finish report: second wrong deletion pass	outcome	partly
+R	27 TERMS clauses take only formal symbols claim	reach	yes
+R	Mesh-for-prose demonstration on a real case	reach	yes
+R	Merging #47 before gate run finished	order	yes
+R	Causality-Dev run/observe records	logic	yes
+R	Ventura prefix-sync mechanism (WORKER_SYSTEM cache minimum)	cap	yes
+R	Build the plan artifact before its inputs settle	order	yes
+R	Newer Makoto registry dropped gate.run_promised gate	logic	partly
+R	DetIO/Causality try 1: DetIO fixed (index+pointer+diff), PR #28	budget	yes
+R	void DetIO measurements (mechanism never fired)	order	yes
+R	Seed's detection-only design (no removal step)	logic	yes
+R	Running the harness as many separate projects	intent	partly
+R	Seed's own vocabulary (gfp, lfp, narrowing, supp, antitone) absent from code	logic	yes
+R	Per-turn citation redundancy over 602 replayed prompts	budget	yes
+R	Identifying dead code by a name-based regex over `git grep -w` instead of a call graph	logic	partly
+R	I/O rule (row 7) landing attempt	outcome	partly
+R	Citing 'experiment 65 ... 99.99% containment while saving 95%' from memory of Gabriel's paraphrase	claim	yes
+R	BM25 fallback tradeoff	outcome	no
+R	Sizing the bound (LIMITS.json) to sum only files outside tests/ and resources/	logic	yes
+R	seed middle (gfp/narrowing/T7/S2) realization	logic	yes
+R	kernel allows/G fixed encoding vs check.py's general relations	budget	yes
+R	Running the bundle script (check.py + coqc) against an empty directory	logic	yes
+R	D:=K2 rewrite (deletes K/K2 fallback line)	outcome	no
+R	unusable shared block still merges parts	logic	partly
+R	Relaying an unverified capability claim about hooks ('hooks only rewrite tool outputs')	claim	yes

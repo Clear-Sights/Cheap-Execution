@@ -1,0 +1,9 @@
+reach	an input or ref the run needs is absent/stale in its env
+cap	a tool, env var, auth, permission or host the run needs is absent in its env
+budget	cost/time/bound arithmetic from known unit costs decides it
+logic	the design contradicts its own goal or is vacuous; decidable on paper or tiny case
+shape	the command or file shape itself (self-match, lost exit, concurrent edit, format)
+claim	a number/fact stated without its command, counted twice, or from memory
+order	a step ran before its inputs settled or its gate finished
+intent	misread of his words; checkable against WORDS/decisions only in part
+outcome	only the run reveals it (effect size, model behaviour, noise)
