@@ -1,0 +1,12 @@
+fact (true of the environment a launched step runs in)	what it predicts	incident it would have caught
+cloud sessions read no ~/.claude/settings.json; hooks load only from a repo's .claude/ or a synced plugin	a hook or plugin set up in the home dir never fires	setup script plugin activation (LEDGER void)
+function hooks need CLAUDE_CODE_ENABLE_FUNCTION_HOOKS set by the setup script	plugins using function hooks are inert without it	launched sessions without it (memory FAILED)
+plugin hooks get CLAUDE_PLUGIN_ROOT only when run through the plugin's own command path	a hook naming a relative path fails open	Makoto install hooks (LEDGER hurt)
+a launched session sees only its repos and handoff.zip, never /mnt/project-files	any step reading the shared folder fails	zip lacked 11 files; handoffs not self-contained
+auto mode refuses force-push, force-reset, rm of tracked work and edits it classes as outside the ask	such a step stops on a permission prompt	force-reset refused; rm check.py.wip; START.md edit refused
+the Bash tool stops a foreground call at 120 s by default (600 s max)	an inner timeout or foreground run longer than that never finishes	sole.sh 590 s cap; nested_budget (this thread)
+rclone mounts: no hard links; more than 3 parallel readers crash with getcwd errors	DetIO put and 4-way parallel verify fail on /mnt/project-files	DetIO put; verify.py x4
+Codex runs need CODEX_AUTH_JSON present and unexpired	a Codex step returns 401	Codex reader 401; Codex row launch-red
+a fresh container has no coqc, ocamlfind, pytest or nltk until provision.sh runs	the gate dies at the first import	pytest missing (Measure-Zero CLAUDE.md)
+pgrep -f / pkill -f match their own command line	a wait loop never ends; a kill ends the session's shell	pgrep wait loops (CRITIQUE)
+a shallow clone lacks commits older than its depth	a run pinned to an older sha tests the wrong tree	void A/B: shallow clone lacked 3948de2

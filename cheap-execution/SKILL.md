@@ -1,103 +1,27 @@
 ---
-name: "cheap-execution"
-description: "Use on every task that spends tokens or runs tools: before dispatching agents, big reads, repeated steps, reviews, handoffs, or compactions."
+name: cheap-execution
+description: Use on every task before spending tokens or running anything, reviews and audits included: walk back from the end to the few inputs that decide it, settle each where it already is, and run only what nothing settles.
 ---
 
-# Cheap Execution
+# Cheap execution
 
-## Terms
+One flow. Each step exists to make the next one unnecessary; stop at the first step that decides the end. A review or audit is the same flow with "no defect left" as its end; REVIEW.md carries its detail and evidence.
 
-- Plant: break an input on purpose; the checks it names, and only those, must fail. A plant that fails nothing is a gap, not a pass.
-- Default: every uncited number below is untested; replace it with a measured one.
+**1. Name the end.** Write the one line that will show the task is done, and what it must read. If a recorded result already carries that line for the same inputs (same hashes), the task is done: reuse it. A later review round reads only the diff since the last head it attacked (about 24,000 tokens against 231,180 for a whole-tree round).
 
-## Rungs: take the first that applies
+**2. Walk back from the end.** Name only the inputs that line depends on: files at pinned hashes, facts of the room that will run it, costs, and the design's own terms. For a chain of stages these are its seams, read off the wiring by script; a stage with no wire gets no check until it is wired. That is the blast radius. Nothing outside it is read, run or checked.
 
-0. Result changes no next act → skip it. A check's result always gates done, so never skip a check.
-1. Search existing sources first; found → read or call it, never copy or recompute.
-2. Same input always gives same answer → compute with code.
-3. Pruning code costs less than model reading all → prune.
-4. Smaller than its own brief → do it here.
-5. Has ACCEPTANCE, reversible, internal → cheaper executor; else here.
+**3. Settle each input where it already is.** A file either resolves in the room that will run the step, meaning a sealed copy with only the zip and the pinned clones, or it does not. A tool, variable, permission or host is either in that room's known facts (FACTS.tsv) or it is not. A cost is units times a measured unit cost. A design either contradicts its goal on paper or it does not. Every check used here is two-sided: red on its own plant and green on the base in the same run, and it tests the kind of fault, never a list of spellings. A check red on the base is the first finding. Whatever fails here is fixed now, at the input, before anything runs. Whatever cannot be settled is a hole.
 
-## Every step
+**4. Ask whether the holes can change the answer.** Put the best case and the worst case of every hole through to the end line. If both give the same verdict, the end is decided on paper: record it and stop. This is where most runs disappear.
 
-- Anything processing items reports in, out, and dropped counts.
-- Every number or fact for a reader is copied from a run's output with its command, or marked `believed`.
-- Repeated review → read only the diff since the last reviewed commit; each finding becomes a plant in the gate, so old escapes are rechecked by script.
-- Gated, irreversible or unknown work → first mock its wiring from existing pieces at 0 model calls, smallest case first; each void becomes a row, filled in order under a numeric cost cap, ending met or measured-not-met.
-- Model calls: batch items per call and pass low effort explicitly; each call pays fixed overhead (Claude ~1.2k, Codex ~10k tokens) and ~1k thinking even when off. Measured: 44.8k → 16.6k.
+**5. Fill only the holes that matter, cheapest first.** Code before a model. Replay the recorded I/O of the changed unit before a live run. Run the smallest live case before the full one. In a review, zero-token cells (the checker, the proof cell, the differential diff) go first, and one strong reader, not the author's model, takes only the seams no cell turned red, with a witness command for every finding and a price set from its last logged run. Each fill goes back through step 4, and the flow stops the moment the end line is decided. How a model call or an agent brief spends: SPENDING.md.
 
-## Done twice by hand, or shared across items → make it run unasked
+**6. Run live with the prediction written down.** What is left is what only a run can show: an effect size, a model's behaviour, noise. Before it starts, write down what it should print and what it should cost; a run over twice the cheapest logged run of its kind stops and names the rise. If the result differs, name the input that would have shown it and add it where step 3 reads it (a row in FACTS.tsv, or a plant in the owner's gate), seen catching this case, so the same surprise never costs a run twice. A review ends only when every plant is red and one round of a different method adds nothing new.
 
-- Do it once in code, store the result for all, inside the act's one entry point.
-- Assert the expected count before acting.
+## What this flow rests on
 
-## Dispatch
-
-- One agent gets at most 3 tasks, sized to fit one context window (GSD REQ-PLAN-02).
-- Parallel agents share no writable state; sessions talk through a file, one writer each, since a message between sessions may never arrive.
-- Grant each agent only the tools its task needs.
-- Verification: checks first (0 tokens); only what they leave goes to one reader, the strongest model, never several cheaper ones.
-- Inputs that may change mid-run, other repos included → pin by content hash or commit, never a live branch.
-
-## Fan-out
-
-- Width starts at min(4, independent items).
-- Rate-limit or usage-limit error → halve width.
-
-## Cache
-
-- Keep every repeated prefix byte-identical: only append to the context, and keep the tool set fixed (restrict a tool by rule, never by removing its definition).
-- Text loaded on every turn (skill descriptions, CLAUDE.md, MCP tools, hook output) → cap its length with a lint set before the session; the rest lives in files read on demand (claude-token-optimizer: 11,000 → 1,300 start tokens).
-- A cached prefix under the model's minimum (512 to 2,048 tokens, prompt caching doc) never caches; check it clears.
-- Model jobs that can wait → Batch API, 50% off, stacks with caching (batch processing doc).
-
-## Brief: inputs
-
-- Whole brief at most 2,000 characters.
-- READ: exactly what to open, with line spans.
-- "Open only READ; need more → return `NEED: <path> <why>`."
-- GROUND TRUTH: facts the task needs, each with confirming command.
-- Embed a random token in context files; missing from the return → that file was not read.
-
-## Brief: outputs
-
-- WRITE: the exact files it may change.
-- ACCEPTANCE: one argv command that tests the kind, never a list of spellings; seen failing on a plant spelled unlike anything it lists.
-- EXPECTED: the exact line ACCEPTANCE prints on PASS.
-- RETURN ≤15 lines: `DONE <file> <counts>` or `BLOCKED <question> <options>`.
-
-## Returns
-
-- Accept only on your own run of ACCEPTANCE.
-- Claim fails its check → keep its coordinates; re-derive there.
-- Verdicts disputed or ≥90% identical → settle by planting.
-
-## On failure
-
-- Resume or retry once, with a changed brief and the change recorded; then one rung up.
-- Permission refused → ask the owner once for the exact action; never retry it or route around it.
-- After a fix: rerun its check, then the regression suite.
-
-## Handoff, task boundary, or compaction: write a plan file
-
-- Sections, in this order: BLOCKING, DONE, NOW, DECIDED, FAILED, NEXT.
-- State, as values not locations, every fact NEXT's first three steps need.
-- Quote verbatim the user's instructions still in force.
-- Omit transcripts, listings, narration and history; history lives in a separate file, read by path only when a step names it.
-- The next job starts in a fresh session from the plan file: a long thread re-read about 325,000 tokens on every call.
-
-## Main window
-
-- Emit only what changed: bounded edits, diffs, new facts.
-- Plan file written → tell the user `/clear` is safe.
-- Output over about 8,000 tokens → write it to a file; read back first 5, FAIL/ERROR lines, last 5, count. Smaller output stays: a hidden output was asked back 85% of the time.
-- Derive what files settle; ask the rest in one message.
-
-## Savings
-
-- Claim a saving only from the same task measured before and after, same conditions: no token type rose, one fell, done-check passes.
-- Count tokens per type from `~/.claude/projects/*/*.jsonl` usage fields; size a prompt before sending with the free count_tokens endpoint, never bytes/4.
-- Timing checks compare a ratio or interleaved runs, never one mean against a fixed bar.
-- Each round ends with one cut applied, its before, after and command appended to Cheap-Execution LESSONS.tsv. Cost over 2× the cheapest logged way → stop, name the rise.
-- Later rounds fold general rows in by measured saving per word; each replaces a weaker line, so it never grows.
+- 147 logged failures, tagged by two readers, one blind: process failures were predictable before the run in 65-81% of cases outright and 96-98% at least in part (`python3 evidence/compare.py`).
+- On SEED27 the zero-token cells alone caught 8 of 8 hidden plants; on the older R1 copy cells caught 6 of 9, and one Opus reader brought it to 9 of 9 at 153k tokens, while Sonnet and Haiku readers caught 0 of 8 (REVIEW.md).
+- Scour: 41 of its 47 labelled real bugs fall in classes a script generates with no model (a reading of the labels, not a run).
+- A worker that only relays one script's output cost 81-98k tokens; the same script run in the background costs about none (SPENDING.md).
