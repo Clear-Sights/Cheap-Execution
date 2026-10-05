@@ -5,7 +5,7 @@ description: Use on every task before spending tokens or running anything, revie
 
 # Cheap execution
 
-One flow. Each step exists to make the next one unnecessary; stop at the first step that decides the end. A review or audit is the same flow with "no defect left" as its end; REVIEW.md carries its detail and evidence.
+One flow. Each step exists to make the next one unnecessary; stop at the first step that decides the end. A review or audit is the same flow with every requirement in the requester's own words accepted as its end; REVIEW.md carries its detail and evidence.
 
 **1. Name the end.** Write the one line that will show the task is done, and what it must read. If a recorded result already carries that line for the same inputs (same hashes), the task is done: reuse it. Count the population the line speaks for by script before reading any verdict over it: a depth-1 clone once gave commits=1 and PASS, and 53 of 53 rows once claimed total coverage because a miss was scored as a strike (small-tools blindspot, the strong-skills handoff). A later review round reads only the diff since the last head it attacked (about 24,000 tokens against 231,180 for a whole-tree round).
 

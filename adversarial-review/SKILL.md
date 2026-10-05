@@ -160,7 +160,7 @@ Do: Assign one dependency-ordered repair to each unmet hole.
 <!-- contract: {"clause_id":"A11.Do6","role":"Do","actions":["execute_now"]} -->
 Do: Execute all repairs now, never defer a definition to a next version.
 <!-- contract: {"clause_id":"A11.Do7","role":"Do","actions":["removal_witness"]} -->
-Do: Keep a clause only when removing it breaks an independently sourced scenario or plant.
+Do: Keep a clause exactly when a requirement in the requester's own words needs it; if removing a needed clause turns nothing red, a check is missing, not the clause.
 <!-- contract: {"clause_id":"A11.Do8","role":"Do","actions":["live_references"]} -->
 Do: Recheck live references before deleting replaced material.
 <!-- contract: {"clause_id":"A11.Evidence","role":"Evidence","refs":["L807","L1076"],"status":"source_record_rechecked; efficacy_not_remeasured"} -->

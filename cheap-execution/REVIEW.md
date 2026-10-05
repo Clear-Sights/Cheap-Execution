@@ -1,5 +1,5 @@
 
-# Review: the flow of SKILL.md with "no defect left" as its end (the adversarial-review skill, kept whole)
+# Review: the flow of SKILL.md with every requirement in the requester's own words accepted as its end (the adversarial-review skill, kept whole)
 
 One audit of a whole chain. The wiring says where to look. Runs decide. A reader covers only what no run reaches. The audit ends zero or impossible.
 
