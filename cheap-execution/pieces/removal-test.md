@@ -1,6 +1,6 @@
 ---
 name: removal-test
-description: Use when deciding whether each line, name, check or table row is needed: remove it alone and keep it only if something turns red.
+description: Use when deciding whether each line, name, check or table row is needed: keep it exactly when a requirement in the requester's own words needs it, and remove it alone to see whether a check notices.
 ---
 
 # Removal test
@@ -12,14 +12,14 @@ description: Use when deciding whether each line, name, check or table row is ne
 ## Steps
 1. For each unit, make a copy without it (one unit at a time).
 2. Run the suite and every plant on the copy.
-3. Keep the unit only if the base turns red without it, or some plant that was red turns green without it. Record which plant or check names it.
-4. A unit that changes nothing is removable. Before deleting, re-check live references to it (grep and imports); a referenced unit stays until the reference goes.
+3. Keep the unit exactly when a requirement in the requester's own words needs it; record that requirement's source and the plant or check that names the unit.
+4. A needed unit whose removal changes nothing shows a missing check: add the check, never remove the unit. A unit no requirement needs is removable. Before deleting, re-check live references to it (grep and imports); a referenced unit stays until the reference goes.
 5. Moving a check elsewhere is not removing it; run the test again after any move.
 6. After removals, rerun the whole suite once to confirm the set is still green together.
 7. Run it as a background script; read only the summary line and the kept list.
 
 ## Done test
-Keep a check only where some planted fault reads green without it, or the base reads red without it.
+Every unit kept names the requirement that needs it, and every needed unit has a check that reads red without it.
 
 ## Evidence
 - A checker went from 27 checks / 647 lines to 14 checks / 522 lines, each catching a fault nothing else does (LEDGER/work/rows/th0*.tsv).
